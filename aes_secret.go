@@ -1,4 +1,4 @@
-package main
+package aes_secret
 
 import (
 	"crypto/aes"
@@ -15,18 +15,6 @@ const (
 	aesKeyFileExt = ".aes_key" //used to save aes key
 	aesEncFileExt = ".aes_enc" //used to save aes encrypted text
 )
-
-func main() {
-	label := "test"
-	text := "Is this the real world?"
-
-	EncryptText(label, text)
-	decryptedText, err := DecryptText(label)
-	if err != nil {
-		log.Fatalf("Failed to decryp text: %s", err)
-	}
-	fmt.Printf("Decrypted text: %s", decryptedText)
-}
 
 func EncryptText(label, text string) {
 	key, err := CreateKey()
